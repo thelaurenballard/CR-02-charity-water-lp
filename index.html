@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Balloon animation container -->
-    <div id="balloon-container"></div>
+    <!-- Balloon animation container (not used, can be removed for clarity) -->
+    <!-- <div id="balloon-container"></div> -->
     <!-- Hero Section: This is the main banner at the top of the page -->
     <section class="hero">
         <!-- Main headline -->
@@ -53,28 +53,62 @@
         <img src="img/image.png" alt="Children using a water pump" width="650" style="border-radius:12px; margin: 18px 0; box-shadow: 0 2px 8px rgba(46,157,247,0.10);">
         <p>Just a little kindess goes a long way</p>
         <a href="#" class="donate-button">ACT NOW</a>
+    <!-- Balloon container for animation -->
+    <div class="balloon-container"></div>
+    <!-- Balloon animation script -->
     <script>
-    // Simple balloon animation when ACT NOW is pressed
+    // Balloons float up all over the page when ACT NOW is pressed
+    // Beginner-friendly: uses basic JavaScript and CSS
     const donateBtn = document.querySelector('.donate-button');
-    const balloonContainer = document.getElementById('balloon-container');
+    const balloonContainer = document.querySelector('.balloon-container');
+    // Make the balloon container cover the whole page
+    balloonContainer.style.position = 'fixed';
+    balloonContainer.style.top = '0';
+    balloonContainer.style.left = '0';
+    balloonContainer.style.width = '100vw';
+    balloonContainer.style.height = '100vh';
+    balloonContainer.style.pointerEvents = 'none';
+    balloonContainer.style.zIndex = '999';
+
     function createBalloon() {
       const balloon = document.createElement('div');
       balloon.className = 'balloon';
-      // Random color and position
-      const colors = ['#FFC907', '#2E9DF7', '#8BD1CB', '#4FCB53', '#FF902A', '#F5402C', '#159A48', '#F16061'];
+      // Random color
+      const colors = ['#FFC907', '#2E9DF7', '#159A48', '#fff', '#FF902A', '#F5402C'];
       balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
-      balloon.style.left = Math.random() * 90 + '%';
-      balloon.style.animationDuration = (2 + Math.random() * 2) + 's';
+      // Random horizontal start position (across the page)
+      const startLeft = Math.random() * 100;
+      balloon.style.left = startLeft + 'vw';
+      // Random size
+      const size = 30 + Math.random() * 30;
+      balloon.style.width = size + 'px';
+      balloon.style.height = (size + 20) + 'px';
+      // Random border radius for balloon shape
+      balloon.style.borderRadius = '50% 50% 50% 50% / 60% 60% 40% 40%';
+      // Animate to a random end position and angle
+      const endLeft = startLeft + (Math.random() * 40 - 20); // drift left/right
+      const endTop = -20 - Math.random() * 20; // float above top
+      const rotateEnd = Math.random() * 60 - 30;
+      balloon.animate([
+        { transform: `translateY(0) rotate(0deg)`, left: startLeft + 'vw', opacity: 0.85 },
+        { transform: `translateY(-100vh) rotate(" + rotateEnd + "deg)`, left: endLeft + 'vw', opacity: 0 }
+      ], {
+        duration: 2200 + Math.random() * 600,
+        easing: 'ease-in',
+        fill: 'forwards'
+      });
       balloonContainer.appendChild(balloon);
-      setTimeout(() => balloon.remove(), 4000);
+      setTimeout(() => balloon.remove(), 2800);
     }
     donateBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      for (let i = 0; i < 12; i++) {
-        setTimeout(createBalloon, i * 120);
+      // Create 30 balloons per click for a full-page effect
+      for (let i = 0; i < 30; i++) {
+        setTimeout(createBalloon, i * 30);
       }
     });
     </script>
+    <!-- Balloon effect removed as requested -->
     </section>
 </body>
 </html>
