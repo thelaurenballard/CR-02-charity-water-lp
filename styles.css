@@ -1,3 +1,36 @@
+/* Balloon animation styles */
+#balloon-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1000;
+}
+.balloon {
+  position: absolute;
+  bottom: 0;
+  width: 36px;
+  height: 48px;
+  border-radius: 18px 18px 18px 18px / 28px 28px 20px 20px;
+  opacity: 0.85;
+  animation: floatBalloon 3.5s linear forwards;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+@keyframes floatBalloon {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-90vh) scale(1.1);
+    opacity: 0;
+  }
+}
 /* Center the Why Support charity: water section heading and description */
 .why-support {
   text-align: center;
@@ -146,7 +179,7 @@ h2 {
   font-size: 1.1em;
   margin-top: 18px;
   box-shadow: 0 2px 8px rgba(21, 154, 72, 0.10); /* Match button color */
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
   border: none;
   cursor: pointer;
 }
@@ -155,6 +188,13 @@ h2 {
 .donate-button:hover {
   background-color: #159A48; /* Dark Green */
   transform: translateY(-2px) scale(1.04); /* Slight lift */
+}
+
+/* Add a press/click effect for the ACT NOW button */
+.donate-button:active {
+  background-color: #127C38; /* Even darker green when pressed */
+  transform: translateY(1px) scale(0.97); /* Button looks pressed */
+  box-shadow: 0 1px 4px rgba(21, 154, 72, 0.18);
 }
 
 /* Add some spacing between sections */

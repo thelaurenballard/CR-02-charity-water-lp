@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Balloon animation container -->
+    <div id="balloon-container"></div>
     <!-- Hero Section: This is the main banner at the top of the page -->
     <section class="hero">
         <!-- Main headline -->
@@ -51,6 +53,28 @@
         <img src="img/image.png" alt="Children using a water pump" width="650" style="border-radius:12px; margin: 18px 0; box-shadow: 0 2px 8px rgba(46,157,247,0.10);">
         <p>Just a little kindess goes a long way</p>
         <a href="#" class="donate-button">ACT NOW</a>
+    <script>
+    // Simple balloon animation when ACT NOW is pressed
+    const donateBtn = document.querySelector('.donate-button');
+    const balloonContainer = document.getElementById('balloon-container');
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      // Random color and position
+      const colors = ['#FFC907', '#2E9DF7', '#8BD1CB', '#4FCB53', '#FF902A', '#F5402C', '#159A48', '#F16061'];
+      balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.left = Math.random() * 90 + '%';
+      balloon.style.animationDuration = (2 + Math.random() * 2) + 's';
+      balloonContainer.appendChild(balloon);
+      setTimeout(() => balloon.remove(), 4000);
+    }
+    donateBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      for (let i = 0; i < 12; i++) {
+        setTimeout(createBalloon, i * 120);
+      }
+    });
+    </script>
     </section>
 </body>
 </html>
