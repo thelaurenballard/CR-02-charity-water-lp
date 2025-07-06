@@ -1,3 +1,30 @@
+/* Center the Why Support charity: water section heading and description */
+.why-support {
+  text-align: center;
+}
+.why-support ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto;
+  padding-left: 0;
+}
+.why-support li {
+  list-style-position: inside;
+  margin-bottom: 18px;
+}
+/* Style the Why Support section heading and description to primary blue */
+.why-support h2,
+.why-support li {
+  color: #2E9DF7;
+}
+/* Set all h2 headings to the primary blue color */
+h2 {
+  color: #2E9DF7;
+}
+/* Set all paragraph text to white for better readability */
+p {
+  color: #fff;
+}
 /* charity: water Brand Colors & Fonts
 
 Primary Colors:
@@ -25,12 +52,12 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  background-color: #FFC907; /* Bright yellow background */
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #222;
-}
+  color: #2E9DF7; /* Set text color to primary blue */
+
 
 /* Add a slight shadow and rounded corners to each section for depth */
 section {
@@ -44,36 +71,34 @@ section {
 /* Hero Section Styles */
 .hero {
   position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
   color: #fff;                 /* White text for contrast */
   text-align: center;          /* Center the text */
   padding: 60px 20px;          /* Add space above and below */
   border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
 }
 
 /* Make the headline bold and modern */
+/* Make the headline (h1) even larger and center it */
 .hero h1 {
-  font-size: 2.5em;
+  font-size: 3.5em; /* Even larger font size for headline */
   font-weight: bold;
   letter-spacing: 1px;
-  margin-bottom: 15px;
+  margin-bottom: 22px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  text-align: center; /* Center the headline */
+  margin-top: 0;
+  color: #159A48; /* Set headline text to dark green */
+}
 }
 
 /* Style the subheadline */
+/* Make the subheadline (p) even larger and center it */
 .hero p {
-  font-size: 1.2em;
+  font-size: 2em; /* Even larger font size for subheadline */
   margin-top: 0;
+  margin-bottom: 0;
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  text-align: center; /* Center the subheadline */
 }
 
 /* Story Section Styles */
@@ -84,7 +109,7 @@ section {
   padding: 30px 20px;
 }
 
-/* Add accent color to section headings */
+/* Set all h2 headings to the primary blue color */
 h2 {
   color: #2E9DF7; /* Primary blue */
   margin-top: 0;
@@ -109,9 +134,10 @@ h2 {
 }
 
 /* Donate Button Styles */
+/* Style the ACT NOW button with dark green */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #159A48; /* Dark Green */
   color: #fff;
   padding: 14px 32px;
   text-decoration: none;
@@ -119,7 +145,7 @@ h2 {
   font-weight: bold;
   font-size: 1.1em;
   margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
+  box-shadow: 0 2px 8px rgba(21, 154, 72, 0.10); /* Match button color */
   transition: background 0.3s, transform 0.2s;
   border: none;
   cursor: pointer;
